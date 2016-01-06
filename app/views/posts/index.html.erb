@@ -10,7 +10,9 @@
 <% @posts.each do |post| %>
 <div class="well">
   <h2><%= link_to post.title, post.link %></h2>
-  <strong>By <%= post.user.name %></strong>
+  <strong>By <%= post.user.name %></strong><br>
+  <td><%= button_to '+1', upvote_post_path(post), method: :post %></td>
+  <td><%= pluralize(post.votes.count, "vote") %></td>
   <p><%= link_to 'Comments', post_comments_path(post) %></p>
 </div>
 <% end %>

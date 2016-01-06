@@ -10,6 +10,13 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create]
   end
 
+  resources :posts do
+    # may change to 'user'
+    member do
+      post 'upvote'
+    end
+  end
+
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
 

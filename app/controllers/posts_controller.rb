@@ -30,6 +30,12 @@ class PostsController < ApplicationController
 
   private
 
+  def upvote
+    # @post = Post.find(params[:id])
+    # @post.votes.create
+    redirect_to(posts_path)
+  end
+
   def post_params
     params.require(:post).permit(:title, :link)
   end
